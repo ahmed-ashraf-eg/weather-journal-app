@@ -18,11 +18,20 @@ app.use(cors())
 app.use(express.static('website'));
 
 // Setup Server
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server is runing on port: ${port}, `)
+})
 
-// Callback to debug
 
 // Initialize all route with a callback function
-
+app.get("/all", sendData)
+app.post("/all", saveData)
 // Callback function to complete GET '/all'
-
+function sendData(req , res) {
+    console.log(req.body)
+}
 // Post Route
+function saveData(req, res) {
+    console.log(req.body)
+}
