@@ -9,6 +9,7 @@ async function generate () {
     const zip = document.querySelector("#zip").value;
     const data = await getData(zip, APIKey, "metric")
     console.log(data)
+    postData("http://localhost:3000/all", data)
 }
 /* Function to GET Web API Data*/
 async function getData (zip, key, unit) {
@@ -22,7 +23,7 @@ async function getData (zip, key, unit) {
 }
 /* Function to POST data */
 async function postData (url, data) {
-   await fetch("http://localhost:3000/all", {
+   await fetch(url, {
         method: 'POST', 
         credentials: 'same-origin',
         headers: {
