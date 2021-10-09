@@ -25,8 +25,12 @@ async function generate () {
 async function getData (zip, key, unit) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${key}&units=${unit}`)
     try {
+        if (response.ok) {
         const newData = await response.json();
                return newData
+        } else {
+            alert("Please enter a valid ZIP code")
+        }
       }catch(error) {
       console.log("error", error);
       }
@@ -66,14 +70,11 @@ async function updateUI () {
         const temp = document.querySelector("#temp");
         const feeling = document.querySelector("#content");
 
-        date.innerHTML = storedData.time
-        temp.innerHTML = storedData.temp
-        feeling.innerHTML = storedData.feeling
+        date.innerHTML = `Data: ${storedData.time.split('T')[0]}`
+        temp.innerHTML = `Temp: ${storedData.temp}°C`
+        feeling.innerHTML = `Feeling: ${storedData.feeling}`
       }catch(error) {
       console.log("error", error);
       }
     
-    
-    /* response = await response.json()
-    return response */
 }
