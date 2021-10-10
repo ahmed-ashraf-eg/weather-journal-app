@@ -29,18 +29,13 @@ app.get("/all", sendData)
 app.post("/all", saveData)
 // Callback function to complete GET '/all'
 function sendData(req , res) {
-    res.send(data)
+    res.send(data[data.length - 1])
 }
 // Post Route
 let data = [];
 
 function saveData(req, res) {
-    console.log(req.body)
+    res.send("Done ^_^")
     projectData = req.body;
-    let weatherData = {
-        temp: projectData.main.temp,
-        time: new Date(projectData.dt * 1000)
-        }
-    data.push(weatherData)
-
+    data.push(projectData)
 }
