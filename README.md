@@ -9,7 +9,7 @@ This is asynchronous web app that uses OpenWeatherMap.com API and user data to d
 - [Features To Add](#features-to-add)
 
 ## Demo Preview
-![Gif of project while running]()
+![Gif of project while running](https://github.com/ahmed-ashraf-eg/weather-journal-app/raw/main/preview.gif)
 
 ## Features
 - The app provide the most accurate & updated weather data 
